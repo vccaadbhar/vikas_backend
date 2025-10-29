@@ -70,11 +70,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/notifications", require("./routes/notifications"));
 app.use("/api/admin", require("./routes/admin"));
 
-/** ✅ Health check */
-app.get("/health", (req, res) => res.json({ ok: true }));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../vikas_frontend/dist/index.html"));
-});
 
 /** ✅ Error handling (must be last) */
 app.use(notFound);
